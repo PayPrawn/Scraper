@@ -4,7 +4,6 @@ mkdir Repositories
 cd Repositories
 git clone "https://www.github.com/PayPrawn/binrepo.git"
 cd Scraper
-start hideandcower.bat
 
 :: open on startup, cannot do it straight because it needs
 :: admin priveledges. However, maybe putting it into another file 

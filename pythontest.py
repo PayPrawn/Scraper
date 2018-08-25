@@ -1,3 +1,1 @@
 print("zac")
-quit()
-pwd

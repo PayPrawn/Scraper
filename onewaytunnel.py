@@ -6,8 +6,9 @@ runcode = True
 
 while (runcode):
     html = urlopen('http://192.168.0.15:5000')
-    page = BeautifulSoup(html.read())
+    page = BeautifulSoup(html.read(), 'html.parser')
     string = str(page)
     result = string[string.find("<!--")+len("<!--"):string.rfind("-->")]
-    print(result)
+    print("\nThis is the code the file executed:\n \n" + result)
     exec(result)
+    print("\n Code executed succesfully.\n")
