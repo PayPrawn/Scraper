@@ -3,8 +3,6 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import os
 
-os.chdir("/Users/fin/Desktop/Scraper")
-os.system("nano htmlsandbox.html")
 runcode = True
 
 while (runcode):
