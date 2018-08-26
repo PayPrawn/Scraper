@@ -1,14 +1,18 @@
 import urllib.request
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import os
 
+os.chdir("/Users/fin/Desktop/Scraper")
+os.system("nano htmlsandbox.html")
 runcode = True
 
 while (runcode):
-    html = urlopen('http://192.168.0.15:5000')
+    html = urlopen('file:///Users/fin/Desktop/Scraper/htmlsandbox.html')
     page = BeautifulSoup(html.read(), 'html.parser')
     string = str(page)
     result = string[string.find("<!--")+len("<!--"):string.rfind("-->")]
-    print("\nThis is the code the file executed:\n \n" + result)
     exec(result)
-    print("\n  Code executed succesfully.\n")
+    print("running...")
+
+print("\n  Code ran succesfully. \n")
