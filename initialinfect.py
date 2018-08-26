@@ -1,6 +1,6 @@
 import os 
 from time import sleep
-os.chdir("/Users/fin/Desktop/testfolder")
+os.chdir("/Applications") #set to applications
 os.system("git clone https://github.com/PayPrawn/Scraper.git")
 os.chdir("Scraper/")
 #now in correct file with repository cloned
