@@ -6,11 +6,11 @@ from time import sleep
 import webbrowser
 
 UpdateCode = True
-runcode = False
+runcode = True
 
 if UpdateCode:
-	os.chdir("/Users/fin/Desktop")
-	os.system("rmdir newfolder")
+    os.system("mkdir newfolder")
+    os.chdir("newfolder/")
  
 sleep(5)
 
