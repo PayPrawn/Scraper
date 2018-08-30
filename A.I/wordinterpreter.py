@@ -37,8 +37,8 @@ elif ((firstword == 'What' or firstword == 'what') and (secondword == 'is') and 
         sixthword = sixthword.split('?')
         sixthword = sixthword[0]
     sentenceid = 'definition3'
-else:
-    sentenceid = "False"
+elif (firstword == 'What' or firstword == 'what') and (secondword == 'is') and (thirdword == 'a' or thirdword == 'an') and (number_of_words == 4):
+    sentenceid = 'question'
 
 
 def define(word):
@@ -61,3 +61,4 @@ elif sentenceid == 'definition2':
     print('\n \n' + secondword == ' means ' + define(secondword)+ '\n \n')
 elif sentenceid == 'definition3':
     print('\n \n' + sixthword + ' means ' + define(sixthword) + '\n \n')
+
