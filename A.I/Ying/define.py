@@ -60,11 +60,42 @@ def creatematrix():
     plt.show()
     plt.title('Personality Matrix')
 
-def nodes():
-    layer1 = []
-    layer2 = []
-    for i in range(10):
-        layer2.append('node' + i)
-        
+
+
+def strengthconnection(firstnode, secondnode):
+    for i in range(len(connections)):
+        if (connections[i][0] == firstnode) and (connections[i][1] == secondnode):
+            return connections[i][2]
+
+
+layer1 = list()
+layer2 = list()
+connections = list()
+for i in range(2):
+    layer2.append(["L1-" + str(i)])
+
+for i in range(10):
+    layer1.append(["L2-" + str(i)])
+    for n in range(len(layer2)):
+        layer1[i].append(layer2[n][0])
+        connections.append(["L1-"+ str(i),"L2-"+ str(n),0.5])
+
+
+f = open('connections.txt','w')
+a = connections
+f.write(str(a))
+f.close()
+
+
+print(layer1)
+print("\n ------------------------------ \n")
+print(layer2)
+print("\n ------------------------------ \n")
+print(connections)
+print("\n ------------------------------ \n")
+print(strengthconnection("L1-9","L2-0"))
+
+
+
           
 
