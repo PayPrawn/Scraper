@@ -1,5 +1,5 @@
 import requests
-import json
+import json   
 inputtedsentence = input('Give me a question: \n \n ')
 split_up_sentence = inputtedsentence.split()
 number_of_words = len(split_up_sentence)
@@ -16,12 +16,13 @@ elif number_of_words == 6:
     sixthword = split_up_sentence[5]
 firstword = firstword.title()
 
+
 if ((firstword == 'What') and (secondword == 'does') and (fourthword == 'mean?' or fourthword == 'mean')) and (number_of_words == 4):
     keyword = thirdword
 elif ((firstword == 'What') and (secondword == 'is') and (thirdword == 'the') and (fourthword == 'definition') and (fifthword == 'of')) and (number_of_words == 6):
     if sixthword.endswith('?'):
         sixthword = (sixthword.split('?'))[0]
-    keyword = sixthword
+        keyword = sixthword
 elif firstword == 'Define':
     keyword = secondword
 
@@ -34,7 +35,5 @@ def define(word):
     )
     data = ((((str(response.json())).split("[{'definition':"))[1]).split("'"))[1]
     return data
-
-def test():
-    print('\n' + keyword + ' means ' + define(keyword) + '\n')
-test()
+    
+print('\n' + keyword + ' means ' + define(keyword) + '\n')
