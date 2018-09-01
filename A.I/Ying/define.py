@@ -94,8 +94,3 @@ print("\n ------------------------------ \n")
 print(connections)
 print("\n ------------------------------ \n")
 print(strengthconnection("L1-9","L2-0"))
-
-
-
-          
-
