@@ -2,8 +2,8 @@ import requests
 import numpy as np
 import matplotlib.pyplot as plt
 import json   
-"""
 def definitionprogram():
+    
     inputtedsentence = input('\n Give me a question: \n \n ')
     split_up_sentence = inputtedsentence.split()
     number_of_words = len(split_up_sentence)
@@ -30,8 +30,8 @@ def definitionprogram():
             keyword = sixthword
     elif firstword == 'Define':
         keyword = secondword
-"""
-def define(word):
+
+    def define(word):
         response = requests.get("https://wordsapiv1.p.mashape.com/words/" + word + "/definitions", 
         headers={
             "X-Mashape-Key": "D70vTt8mOUmshUdrvUtrQVr3kFDip1mxzSIjsnf7Mwkfr6w2Ep",
@@ -40,17 +40,8 @@ def define(word):
         )
         data = ((((str(response.json())).split("[{'definition':"))[1]).split("'"))[1]
         return data
-
-def doeswordexist(string):
- try:
-    if print(define(string)) != "":
-        return True
- except IndexError:
-   return False
-
-
-
-
+    
+    print('\n' + keyword + ' means ' + define(keyword) + '\n')
 def wordinterpreter():
     print('\n Command list: \n define')
     x = ''
@@ -70,15 +61,7 @@ def creatematrix():
     plt.show()
     plt.title('Personality Matrix')
 
-def define(word):
-        response = requests.get("https://wordsapiv1.p.mashape.com/words/" + word + "/definitions", 
-        headers={
-            "X-Mashape-Key": "D70vTt8mOUmshUdrvUtrQVr3kFDip1mxzSIjsnf7Mwkfr6w2Ep",
-            "X-Mashape-Host": "wordsapiv1.p.mashape.com"
-        }
-        )
-        data = ((((str(response.json())).split("[{'definition':"))[1]).split("'"))[1]
-        return data
+
 
 def strengthconnection(firstnode, secondnode):
     for i in range(len(connections)):
@@ -112,5 +95,3 @@ print("\n ------------------------------ \n")
 print(connections)
 print("\n ------------------------------ \n")
 print(strengthconnection("L1-9","L2-0"))
-
-def wordanalysis(string):
