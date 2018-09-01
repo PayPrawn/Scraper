@@ -59,6 +59,12 @@ def creatematrix():
     plt.plot(x, y)
     plt.show()
     plt.title('Personality Matrix')
-creatematrix()
+
+def nodes():
+    layer1 = []
+    layer2 = []
+    for i in range(10):
+        layer2.append('node' + i)
+        
           
 
