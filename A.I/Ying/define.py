@@ -1,4 +1,6 @@
 import requests
+import numpy as np
+import matplotlib.pyplot as plt
 import json   
 def definitionprogram():
     inputtedsentence = input('\n Give me a question: \n \n ')
@@ -39,8 +41,8 @@ def definitionprogram():
         return data
     
     print('\n' + keyword + ' means ' + define(keyword) + '\n')
-
 def wordinterpreter():
+    print('\n Command list: \n define')
     x = ''
     while x != 'stop':
         print('\n')
@@ -50,9 +52,13 @@ def wordinterpreter():
             while input('Do you want to find out the definition of another word? \n \n') == 'yes':
                 definitionprogram()
                 print('\n')
-        
-                
-    
-    
-    
-wordinterpreter()
+def creatematrix():
+    x = np.array(10)
+    formula = ((((-1 * x) ** 2) + 5) ** (1 / 2))
+    y = formula
+    plt.plot(x, y)
+    plt.show()
+    plt.title('Personality Matrix')
+creatematrix()
+          
+
