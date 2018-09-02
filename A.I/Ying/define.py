@@ -87,7 +87,7 @@ def crack():
     z = 0
     w = 0
     a = 0
-    for f in range(26):
+    for f in range(27 ** 5):
         if y == 27: 
             y = 0
         if x == 729:
