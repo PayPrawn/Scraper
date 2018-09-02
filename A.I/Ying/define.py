@@ -11,6 +11,7 @@ import os
 start_time = time.time()
 realwords = []
 os.chdir('A.I.Words')
+x = 0
 
 def ascii2(integer_value_entered):
     global valuemover
@@ -77,10 +78,12 @@ def ascii2(integer_value_entered):
 def doeswordexist(word):
     firstletter = word[0]
     if (str((BeautifulSoup(((requests.get('https://en.oxforddictionaries.com/definition/' + word)).text), 'html.parser')).find_all('h3'))).find('[<h3 class="ps pos">') > -1:
+        x = x + 1
         with open(firstletter + '-file.txt', 'r+') as f:
             old = f.read()
             f.seek(0)
             f.write(word + '\n' + old)  
+        print(x)
 def crack():
     y = 0
     x = 0
