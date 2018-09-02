@@ -73,16 +73,6 @@ def ascii2(integer_value_entered):
 
     return(returned_value)
 
-def createfile():
-    os.chdir('/Users/fin/Desktop/testfolder/')
-    with open('testfile.txt', 'r+') as f:
-        old = str(f.read())
-        f.seek(0)
-        f.write('new line\n' + old)
-    
-
-
-
 def crack():
     y = 0
     x = 0
@@ -218,6 +208,13 @@ def nodes():
     print(connections)
     print("\n ------------------------------ \n")
     print(strengthconnection("L1-9","L2-0"))
-
-createfile()
+def changefile():
+    os.chdir('A.I')
+    os.chdir('Ying')
+    os.system('dir')
+    with open('testfile.txt', 'r+') as f:
+        old = f.read()
+        f.seek(0)
+        f.write('new line\n' + old)
+changefile()
 print(time.time() - start_time)
