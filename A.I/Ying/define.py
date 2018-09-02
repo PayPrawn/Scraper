@@ -10,6 +10,7 @@ import math
 import os
 start_time = time.time()
 realwords = []
+os.chdir('A.I.Words')
 
 def ascii2(integer_value_entered):
     global valuemover
@@ -73,13 +74,20 @@ def ascii2(integer_value_entered):
 
     return(returned_value)
 
+def doeswordexist(word):
+    firstletter = word[0]
+    if (str((BeautifulSoup(((requests.get('https://en.oxforddictionaries.com/definition/' + word)).text), 'html.parser')).find_all('h3'))).find('[<h3 class="ps pos">') > -1:
+        with open(firstletter + '-file.txt', 'r+') as f:
+            old = f.read()
+            f.seek(0)
+            f.write(word + '\n' + old)  
 def crack():
     y = 0
     x = 0
     z = 0
     w = 0
     a = 0
-    for f in range(27**5):
+    for f in range(26):
         if y == 27: 
             y = 0
         if x == 729:
@@ -88,7 +96,7 @@ def crack():
             z = 0
         if w == 531441:
             w = 0
-
+        global completedword
         place2floored = (math.floor(x / 27) + 1)
         place3floored = (math.floor(z / 729) + 1)
         place4floored = (math.floor(w / 19683) + 1)
@@ -104,24 +112,8 @@ def crack():
         z = z + 1
         w = w + 1
         a = a + 1
-        print(completedword)
-        if completedword == "zzzzz":
-            print('complete')
-            break
-        
-'''
-url = 'html://...'
-pagedata = requests.get(url)
-parsed_data = BeautifulSoup(pagedata, 'html.parser')
-find_data = parsed_data.find_all('what you want to find')
-string = string(find_data)
-specific_place = string.find
-'''
+        doeswordexist(completedword)
 
-
-def doeswordexist(word):
-    if (str((BeautifulSoup(((requests.get('https://en.oxforddictionaries.com/definition/' + word)).text), 'html.parser')).find_all('h3'))).find('[<h3 class="ps pos">') > -1:
-        realwords.append(word)
 def define(word):
     response = requests.get("https://wordsapiv1.p.mashape.com/words/" + word + "/definitions", 
     headers={
@@ -181,6 +173,7 @@ def strengthconnection(firstnode, secondnode):
         if (connections[i][0] == firstnode) and (connections[i][1] == secondnode):
             return connections[i][2]
 def nodes():
+
     global connections
     layer1 = list()
     layer2 = list()
@@ -208,13 +201,3 @@ def nodes():
     print(connections)
     print("\n ------------------------------ \n")
     print(strengthconnection("L1-9","L2-0"))
-def changefile():
-    os.chdir('A.I')
-    os.chdir('Ying')
-    os.system('dir')
-    with open('testfile.txt', 'r+') as f:
-        old = f.read()
-        f.seek(0)
-        f.write('new line\n' + old)
-changefile()
-print(time.time() - start_time)
