@@ -1,10 +1,8 @@
-import requests
-import urllib.request
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
-
-url = requests.get('https://en.oxforddictionaries.com/definition/die')
-r = BeautifulSoup(url)
-data = r.text
-string = str(data)
-print(string)
+import os
+def createfile():
+    os.chdir('/Users/fin/Desktop/testfolder/')
+    with open('testfile.txt', 'r+') as f:
+        old = str(f.read())
+        f.seek(0)
+        f.write('new line\n' + old)
+createfile()

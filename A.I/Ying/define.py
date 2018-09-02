@@ -7,6 +7,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import time
 import math
+import os
 start_time = time.time()
 realwords = []
 
@@ -72,6 +73,16 @@ def ascii2(integer_value_entered):
 
     return(returned_value)
 
+def createfile():
+    os.chdir('/Users/fin/Desktop/testfolder/')
+    with open('testfile.txt', 'r+') as f:
+        old = str(f.read())
+        f.seek(0)
+        f.write('new line\n' + old)
+    
+
+
+
 def crack():
     y = 0
     x = 0
@@ -103,12 +114,11 @@ def crack():
         z = z + 1
         w = w + 1
         a = a + 1
-        if completedword == "mzzzz":
+        print(completedword)
+        if completedword == "zzzzz":
             print('complete')
             break
-    
-
-
+        
 '''
 url = 'html://...'
 pagedata = requests.get(url)
@@ -116,8 +126,9 @@ parsed_data = BeautifulSoup(pagedata, 'html.parser')
 find_data = parsed_data.find_all('what you want to find')
 string = string(find_data)
 specific_place = string.find
-
 '''
+
+
 def doeswordexist(word):
     if (str((BeautifulSoup(((requests.get('https://en.oxforddictionaries.com/definition/' + word)).text), 'html.parser')).find_all('h3'))).find('[<h3 class="ps pos">') > -1:
         realwords.append(word)
@@ -208,5 +219,5 @@ def nodes():
     print("\n ------------------------------ \n")
     print(strengthconnection("L1-9","L2-0"))
 
-crack()
+createfile()
 print(time.time() - start_time)
