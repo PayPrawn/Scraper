@@ -79,41 +79,48 @@ def doeswordexist(word):
         with open(firstletter + '-file.txt', 'r+') as f:
             old = f.read()
             f.seek(0)
-            f.write(word + '\n' + old)  
-        print
+            f.write(word + '\n' + old)
+            print(word)
+            
 def crack():
-    y = 0
-    x = 0
-    z = 0
-    w = 0
-    a = 0
+    y = 1
+    x = 1
+    z = 1
+    w = 1
+    a = 1
+    h = 1
     for f in range(27 ** 5):
-        if y == 27: 
-            y = 0
-        if x == 729:
-            x = 0
-        if z == 19683:
-            z = 0
-        if w == 531441:
-            w = 0
-        global completedword
-        place2floored = (math.floor(x / 27) + 1)
-        place3floored = (math.floor(z / 729) + 1)
-        place4floored = (math.floor(w / 19683) + 1)
-        place5floored = (math.floor(a / 531441) + 1)
-        place5 = ascii2(y + 1)
-        place4 = ascii2(place2floored)
+        if y == 28: 
+            y = 1
+        if x == 730:
+            x = 1
+        if z == 19684:
+            z = 1
+        if w == 531442:
+            w = 1
+        if a == 14348908:
+            a = 1
+        
+        place1floored = (math.floor(h / 14348907) + 1)
+        place2floored = (math.floor(a / 531441) + 1)
+        place3floored = (math.floor(w / 19683) + 1)
+        place4floored = (math.floor(z / 729) + 1)
+        place5floored = (math.floor(x / 27) + 1)
+        place6floored = (math.floor(y / 1) + 1)
+        place1 = ascii2(place1floored)
+        place2 = ascii2(place2floored)
         place3 = ascii2(place3floored)
-        place2 = ascii2(place4floored)
-        place1 = ascii2(place5floored)
-        completedword = place1 + place2 + place3 + place4 + place5
+        place4 = ascii2(place4floored)
+        place5 = ascii2(place5floored)
+        place6 = ascii2(place6floored)
+        completedword = place1 + place2 + place3 + place4 + place5 + place6
         x = x + 1
         y = y + 1
         z = z + 1
         w = w + 1
         a = a + 1
+        h = h + 1
         doeswordexist(completedword)
-
 def define(word):
     response = requests.get("https://wordsapiv1.p.mashape.com/words/" + word + "/definitions", 
     headers={
